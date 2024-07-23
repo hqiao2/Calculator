@@ -27,14 +27,12 @@ class MainActivity : AppCompatActivity() {
         button.setOnClickListener{ view ->
             var x: Int = edtxt1.text.toString().toInt();
             var y: Int = edtxt2.text.toString().toInt();
-            if(flag =="sum")
-                resultTV.text = sum(x,y).toString();
-            else if(flag == "multiply")
-                resultTV.text = multiply(x,y).toString();
-            else if(flag == "subtract")
-                resultTV.text = subtract(x,y).toString();
-            else
-                resultTV.text = divide(x,y).toString();
+            when(flag){
+                "sum" -> resultTV.text = sum(x,y).toString();
+                "multiply" -> resultTV.text = multiply(x,y).toString();
+                "subtract" -> resultTV.text = subtract(x,y).toString();
+                "divide" -> resultTV.text = divide(x,y).toString();
+            }
         }
         spinnerVal.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
